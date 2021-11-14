@@ -19,6 +19,7 @@
 		AF7F412C273D8CDB003F6D32 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F412B273D8CDB003F6D32 /* BookCell.swift */; };
 		AFC590A4273E89C6005B8C2E /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC590A3273E89C6005B8C2E /* BookListViewController.swift */; };
 		AFC590A6273E89F3005B8C2E /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC590A5273E89F3005B8C2E /* BookTableViewCell.swift */; };
+		AFC590A8273EB60C005B8C2E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC590A7273EB60C005B8C2E /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		AF7F412B273D8CDB003F6D32 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		AFC590A3273E89C6005B8C2E /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
 		AFC590A5273E89F3005B8C2E /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		AFC590A7273EB60C005B8C2E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				AFC590A3273E89C6005B8C2E /* BookListViewController.swift */,
 				AFC590A5273E89F3005B8C2E /* BookTableViewCell.swift */,
+				AFC590A7273EB60C005B8C2E /* DetailsViewController.swift */,
 			);
 			path = ViewFromCode;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				AFC590A6273E89F3005B8C2E /* BookTableViewCell.swift in Sources */,
 				AF7F412C273D8CDB003F6D32 /* BookCell.swift in Sources */,
+				AFC590A8273EB60C005B8C2E /* DetailsViewController.swift in Sources */,
 				AF7F4126273D8406003F6D32 /* BookList.swift in Sources */,
 				AF403A38272C7137006203B5 /* AppDelegate.swift in Sources */,
 				AF7F412A273D88CE003F6D32 /* BookDecoder.swift in Sources */,
@@ -353,6 +357,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,6 +386,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

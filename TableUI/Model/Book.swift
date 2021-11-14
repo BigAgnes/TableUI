@@ -23,6 +23,14 @@ struct BookItem: Codable {
     }
 }
 
+enum BookType {
+    case electronic, audio, pdf, unknown
+}
+
+enum AgeLimit {
+    case zero, six, twelve, sixteen, eighteen, unknown
+}
+
 struct Book: Codable {
     var id: Int
     var title: String
@@ -36,6 +44,35 @@ struct Book: Codable {
     var inventoryNumber: Double
     var expirationDate: String?
     var genre: String
+    
+    var type: BookType {
+        switch typeDesc {
+        case "Электронный текст":
+            return .electronic
+        case "Аудиокнига":
+            return .audio
+        case "PDF-книга":
+            return .pdf
+        default:
+            return .unknown
+        }
+    }
+    var ageLimit: AgeLimit {
+        switch ageLimitDesc{
+        case 0:
+            return .zero
+        case 6:
+            return .six
+        case 12:
+            return .twelve
+        case 16:
+            return .sixteen
+        case 18:
+            return .eighteen
+        default:
+            return .unknown
+        }
+    }
 
     enum CodingKeys: String, CodingKey {
         case id = "ID"
