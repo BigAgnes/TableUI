@@ -9,122 +9,95 @@ import UIKit
 
 class DetaulsViewController: UIViewController {
     
-    private var books: [Book] = []
+    private let dateExpirationLabel = UILabel()
+    private let dateAdmissionLabel = UILabel()
+    private let priceAdmissionLabel = UILabel()
+    private let fullNameAuthorLabel = UILabel()
+    private let titleBookLabel = UILabel()
     
-    let dateExpiration = UILabel()
-    let dateAdmission = UILabel()
-    let priceAdmission = UILabel()
-    let fullNameAuthor = UILabel()
-    let titleBook = UILabel()
+    private let typeImage = UIImageView()
+    private let bookImage = UIImageView()
+    private let ageLimitImage = UIImageView()
     
-    let type = UIImageView()
-    let bookImage = UIImageView()
-    let ageLimit = UIImageView()
-    
-    let index: Int
-    
-    var screenWidth: CGFloat {
-        UIScreen.main.bounds.size.width
+    struct Const {
+        static var screenWidth: CGFloat {
+            UIScreen.main.bounds.size.width
+        }
+        static var screenHeigth: CGFloat {
+            UIScreen.main.bounds.size.height
+        }
+        static let labelWidth: CGFloat = screenWidth * 0.8
+        static let labelHeight: CGFloat = 40
+        
+        static let insetIcon = screenWidth * 0.5
+        static let iconBookImageSide = screenWidth * 0.6
+        static let iconSide = screenWidth * 0.1
+        
+        static let marginLeft = screenWidth * 0.04
+        static let labelBlockInset = marginLeft * 3 + iconBookImageSide + iconSide
+        static let labelPriceInset = screenHeigth * 0.8
     }
-    var screenHeigth: CGFloat {
-        UIScreen.main.bounds.size.height
-    }
     
-    init(_ index: Int) {
-        self.index = index
+        
+    init() {
         super.init(nibName: nil, bundle: nil)
-    }
-    
-    override func viewDidLoad() {
-        books = BookDecoder().decode()
-        setup(book: books[index])
-    }
+        }
     
     func setup(book: Book) {
-
-        let labelWidth = screenWidth * 0.8
-        let labelHeight: CGFloat = 40
-        
-        let insetIcon = screenWidth * 0.5
-        let iconBookImageSide = screenWidth * 0.6
-        let iconSide = screenWidth * 0.1
-        
-        let inset = screenWidth * 0.04
-        let labelBlockInset = inset * 3 + iconBookImageSide + iconSide
-        let labelPriceInset = screenHeigth * 0.8
         
         view.backgroundColor = .white
 
-        titleBook.frame = CGRect(x: inset, y: labelBlockInset, width: labelWidth, height: labelHeight)
-        titleBook.text = "Название: \(book.title)"
-        view.addSubview(titleBook)
+        titleBookLabel.text = "Название: \(book.title)"
+        view.addSubview(titleBookLabel)
         
-        fullNameAuthor.frame = CGRect(x: inset, y: labelBlockInset + labelHeight, width: labelWidth, height: labelHeight)
-        fullNameAuthor.text = "Автор: \(book.authorFullName ?? "")"
-        view.addSubview(fullNameAuthor)
+        fullNameAuthorLabel.text = "Автор: \(book.authorFullName ?? "")"
+        view.addSubview(fullNameAuthorLabel)
         
-        dateAdmission.frame = CGRect(x: inset, y: labelBlockInset + labelHeight * 2, width: labelWidth, height: labelHeight)
-        dateAdmission.text = "Дата поступления: \(book.admissionDate)"
-        view.addSubview(dateAdmission)
+        dateAdmissionLabel.text = "Дата поступления: \(book.admissionDate)"
+        view.addSubview(dateAdmissionLabel)
         
-        dateExpiration.frame = CGRect(x: inset, y: labelBlockInset + labelHeight * 3, width: labelWidth, height: labelHeight)
-        dateExpiration.text = "Выдана до: \(book.expirationDate ?? "")"
-        view.addSubview(dateExpiration)
+        dateExpirationLabel.text = "Выдана до: \(book.expirationDate ?? "")"
+        view.addSubview(dateExpirationLabel)
         
-        priceAdmission.frame = CGRect(x: insetIcon - labelWidth / 2, y: labelPriceInset, width: labelWidth, height: labelHeight)
-        priceAdmission.text = "\(book.admissionPrice)"
-        priceAdmission.font = .systemFont(ofSize: 40)
-        priceAdmission.textAlignment = .center
-        priceAdmission.textColor = .darkGray
-        view.addSubview(priceAdmission)
+        priceAdmissionLabel.text = "\(book.admissionPrice)"
+        view.addSubview(priceAdmissionLabel)
+        
+        view.addSubview(bookImage)
+    
+        view.addSubview(typeImage)
+
+        view.addSubview(ageLimitImage)
+        layout()
+    }
+    
+    private func layout() {
+        titleBookLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset, width: Const.labelWidth, height: Const.labelHeight)
+        
+        fullNameAuthorLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset + Const.labelHeight, width: Const.labelWidth, height: Const.labelHeight)
+        
+        dateAdmissionLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset + Const.labelHeight * 2, width: Const.labelWidth, height: Const.labelHeight)
+        
+        dateExpirationLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset + Const.labelHeight * 3, width: Const.labelWidth, height: Const.labelHeight)
+        
+        priceAdmissionLabel.frame = CGRect(x: Const.insetIcon - Const.labelWidth / 2, y: Const.labelPriceInset, width: Const.labelWidth, height: Const.labelHeight)
+        priceAdmissionLabel.font = .systemFont(ofSize: 40)
+        priceAdmissionLabel.textAlignment = .center
+        priceAdmissionLabel.textColor = .darkGray
         
         bookImage.image = UIImage(named: "bookImg.jpg")
-        bookImage.frame.size = CGSize(width: iconBookImageSide, height: iconBookImageSide)
+        bookImage.frame.size = CGSize(width: Const.iconBookImageSide, height: Const.iconBookImageSide)
         bookImage.frame.origin.x = CGFloat(view.frame.midX - (bookImage.frame.size.width / 2))
-        bookImage.frame.origin.y = CGFloat(inset)
-        view.addSubview(bookImage)
+        bookImage.frame.origin.y = CGFloat(Const.marginLeft)
         
-        var typeIcon = ""
-        var ageLimitIcon = ""
+        typeImage.image = UIImage(systemName: "BookType.imageBookTypeName")
+        typeImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
+        typeImage.frame.origin.x = CGFloat(Const.insetIcon - typeImage.frame.size.width - Const.marginLeft)
+        typeImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginLeft * 2)
         
-        switch book.type {
-        case .electronic:
-            typeIcon = "book.closed.fill"
-        case .audio:
-            typeIcon = "headphones.circle.fill"
-        case .pdf:
-            typeIcon = "doc.circle"
-        case .unknown:
-            typeIcon = "camera.metering.unknown"
-        }
-        
-        switch book.ageLimit {
-        case .zero:
-            ageLimitIcon = "0.circle.fill"
-        case .six:
-            ageLimitIcon = "6.circle.fill"
-        case .twelve:
-            ageLimitIcon = "12.circle.fill"
-        case .sixteen:
-            ageLimitIcon = "16.circle.fill"
-        case .eighteen:
-            ageLimitIcon = "18.circle.fill"
-        case .unknown:
-            ageLimitIcon = "camera.metering.unknown"
-        }
-        
-        type.image = UIImage(systemName: typeIcon)
-        type.frame.size = CGSize(width: iconSide, height: iconSide)
-        type.frame.origin.x = CGFloat(insetIcon - type.frame.size.width - inset)
-        type.frame.origin.y = CGFloat(bookImage.frame.height + inset * 2)
-        view.addSubview(type)
-
-        
-        ageLimit.image = UIImage(systemName: ageLimitIcon)
-        ageLimit.frame.size = CGSize(width: iconSide, height: iconSide)
-        ageLimit.frame.origin.x = CGFloat(insetIcon + inset)
-        ageLimit.frame.origin.y = CGFloat(bookImage.frame.height + inset * 2)
-        view.addSubview(ageLimit)
+        ageLimitImage.image = UIImage(systemName: "AgeLimit.imageAgeLimit")
+        ageLimitImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
+        ageLimitImage.frame.origin.x = CGFloat(Const.insetIcon + Const.marginLeft)
+        ageLimitImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginLeft * 2)
     }
     
     required init?(coder: NSCoder) {

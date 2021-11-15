@@ -10,8 +10,7 @@ import UIKit
 class BookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var books: [Book] = []
-    let tableView = UITableView()
-    
+    private let tableView = UITableView()
     
     override func loadView() {
         super.loadView()
@@ -20,6 +19,9 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Library"
+        self.view.backgroundColor = .white
+        
         books = BookDecoder().decode()
         tableView.dataSource = self
         tableView.delegate = self
@@ -43,13 +45,12 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let bookInfo = DetaulsViewController(indexPath.row)
-        present(bookInfo, animated: true) 
+        let bookInfo = DetaulsViewController()
+        bookInfo.setup(book: self.books[indexPath.row])
+        present(bookInfo, animated: true)
     }
     
-    func book(by indexPath: IndexPath) -> Book {
+    private func book(by indexPath: IndexPath) -> Book {
         books[indexPath.row]
     }
-    
-    
 }

@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qrx-OP-oXa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uvK-aM-gND">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19162"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Book List-->
+        <!--Navigation Controller-->
+        <scene sceneID="8B2-Ev-guD">
+            <objects>
+                <navigationController id="uvK-aM-gND" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jci-gM-rcB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qrx-OP-oXa" kind="relationship" relationship="rootViewController" id="6Th-Pb-Dfn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2f-F5-hpO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1655" y="87"/>
+        </scene>
+        <!--Library-->
         <scene sceneID="Rqr-is-7zu">
             <objects>
                 <tableViewController id="qrx-OP-oXa" customClass="BookList" customModule="TableUI" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,6 +103,7 @@
                             <outlet property="delegate" destination="qrx-OP-oXa" id="csg-g7-Wja"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Library" id="8rH-C0-PwF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWx-Zt-v2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kpE-zM-sGU">
@@ -97,7 +115,7 @@
                     </tableViewCellContentView>
                 </tableViewCell>
             </objects>
-            <point key="canvasLocation" x="-285" y="98"/>
+            <point key="canvasLocation" x="-813" y="86"/>
         </scene>
     </scenes>
     <resources>

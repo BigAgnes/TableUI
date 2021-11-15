@@ -9,84 +9,108 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    var id = UILabel()
-    var title = UILabel()
-    var author = UILabel()
-    var type = UIImageView()
-    var ageLimit = UIImageView()
+    private let idLabel = UILabel()
+    private let titleLabel = UILabel()
+    private let authorLabel = UILabel()
+    private let typeImage = UIImageView()
+    private let ageLimitImage = UIImageView()
     
-    var screenWidth: CGFloat {
-        UIScreen.main.bounds.size.width
+    private struct Const {
+        static let marginLeft: CGFloat = 12
+        static var screenWidth: CGFloat {
+            UIScreen.main.bounds.size.width
+        }
+        static var cellHeight: CGFloat = 90
+        static let labelWidth = screenWidth * 0.72
+        static let labelHeight = cellHeight / 3
+        
+        static let iconSide = cellHeight * 0.4
+        static let insetXForIcon = screenWidth - labelWidth - iconSide - marginLeft * 2
+        static let iconInsetX = marginLeft + labelWidth + insetXForIcon
+        static let iconInsetY = (cellHeight - iconSide * 2) / 3
+    }
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     
     func setup(book: Book) {
         
-        let cellHeight = self.frame.size.height
-        let inset = screenWidth * 0.03
-        let labelWidth = screenWidth * 0.72
-        let iconSide = cellHeight * 0.4
-        let space = screenWidth - labelWidth - iconSide - inset * 2
-        let iconX = inset + labelWidth + space
-        let labelHeight = cellHeight / 3
-        let iconInset = (cellHeight - iconSide * 2) / 3
-        let secondIconY = iconInset * 2 + iconSide
+        self.addSubview(idLabel)
+        self.addSubview(titleLabel)
+        self.addSubview(authorLabel)
+        self.addSubview(typeImage)
+        self.addSubview(ageLimitImage)
         
-        id.frame = CGRect(x: inset, y: 0, width: labelWidth, height: labelHeight)
-        id.textColor = .gray
-        id.textAlignment = .left
-        id.font = .systemFont(ofSize: 10)
-        self.addSubview(id)
+        self.idLabel.text = String(book.id)
+        self.titleLabel.text = book.title
+        self.authorLabel.text = book.author
+        layout()
+    }
+    
+    private func layout() {
+        idLabel.frame = CGRect(x: Const.marginLeft, y: 0, width: Const.labelWidth, height: Const.labelHeight)
+        idLabel.textColor = .gray
+        idLabel.textAlignment = .left
+        idLabel.font = .systemFont(ofSize: 10)
         
-        title.frame = CGRect(x: inset, y: labelHeight, width: labelWidth, height: labelHeight)
-        title.textAlignment = .left
-        title.font = .systemFont(ofSize: 14)
-        self.addSubview(title)
+    
+        titleLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelHeight, width: Const.labelWidth, height: Const.labelHeight)
+        titleLabel.textAlignment = .left
+        titleLabel.font = .systemFont(ofSize: 14)
+
+    
+        authorLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelHeight * 2, width: Const.labelWidth, height: Const.labelHeight)
+        authorLabel.textAlignment = .left
+        authorLabel.font = .systemFont(ofSize: 14)
         
-        author.frame = CGRect(x: inset, y: labelHeight * 2, width: labelWidth, height: labelHeight)
-        author.textAlignment = .left
-        author.font = .systemFont(ofSize: 14)
-        self.addSubview(author)
-        
-        var typeIcon = ""
-        var ageLimitIcon = ""
-        
-        switch book.type {
-        case .electronic:
-            typeIcon = "book.closed.fill"
-        case .audio:
-            typeIcon = "headphones.circle.fill"
-        case .pdf:
-            typeIcon = "doc.circle"
-        case .unknown:
-            typeIcon = "camera.metering.unknown"
-        }
-        
-        switch book.ageLimit {
-        case .zero:
-            ageLimitIcon = "0.circle.fill"
-        case .six:
-            ageLimitIcon = "6.circle.fill"
-        case .twelve:
-            ageLimitIcon = "12.circle.fill"
-        case .sixteen:
-            ageLimitIcon = "16.circle.fill"
-        case .eighteen:
-            ageLimitIcon = "18.circle.fill"
-        case .unknown:
-            ageLimitIcon = "camera.metering.unknown"
-        }
-        
-        type.image = UIImage(systemName: typeIcon)
-        type.frame = CGRect(x: iconX, y: iconInset, width: iconSide, height: iconSide)
-        self.addSubview(type)
-        
-        ageLimit.image = UIImage(systemName: ageLimitIcon)
-        ageLimit.frame = CGRect(x: iconX, y: secondIconY , width: iconSide, height: iconSide)
-        self.addSubview(ageLimit)
-        
-        self.id.text = String(book.id)
-        self.title.text = book.title
-        self.author.text = book.author
+    
+        typeImage.image = UIImage(systemName: "BookType.imageBookTypeName")
+        typeImage.frame = CGRect(x: Const.iconInsetX, y: Const.iconInsetY, width: Const.iconSide, height: Const.iconSide)
+    
+        ageLimitImage.image = UIImage(systemName: "AgeLimit.imageAgeLimit")
+        ageLimitImage.frame = CGRect(x: Const.iconInsetX, y: Const.iconInsetY * 2 + Const.iconSide , width: Const.iconSide, height: Const.iconSide)
+    }
+
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension BookType {
+    var imageBookTypeName: String {
+        switch self {
+        case .electronic:
+            return "book.closed.fill"
+        case .audio:
+            return "headphones.circle.fill"
+        case .pdf:
+            return "doc.circle"
+        case .unknown:
+            return "camera.metering.unknown"
+        }
+    }
+}
+
+extension AgeLimit {
+    var imageAgeLimit: String {
+        switch self {
+        case .zero:
+            return "0.circle.fill"
+        case .six:
+            return "6.circle.fill"
+        case .twelve:
+            return "12.circle.fill"
+        case .sixteen:
+            return "16.circle.fill"
+        case .eighteen:
+            return "18.circle.fill"
+        case .unknown:
+            return "camera.metering.unknown"
+        }
+    }
+}
+
