@@ -47,6 +47,10 @@ class BookTableViewCell: UITableViewCell {
         self.idLabel.text = String(book.id)
         self.titleLabel.text = book.title
         self.authorLabel.text = book.author
+        
+        typeImage.image = UIImage(systemName: book.type.imageBookTypeName)
+        ageLimitImage.image = UIImage(systemName: book.ageLimit.imageAgeLimit)
+        
         layout()
     }
     
@@ -66,11 +70,8 @@ class BookTableViewCell: UITableViewCell {
         authorLabel.textAlignment = .left
         authorLabel.font = .systemFont(ofSize: 14)
         
-    
-        typeImage.image = UIImage(systemName: "BookType.imageBookTypeName")
         typeImage.frame = CGRect(x: Const.iconInsetX, y: Const.iconInsetY, width: Const.iconSide, height: Const.iconSide)
     
-        ageLimitImage.image = UIImage(systemName: "AgeLimit.imageAgeLimit")
         ageLimitImage.frame = CGRect(x: Const.iconInsetX, y: Const.iconInsetY * 2 + Const.iconSide , width: Const.iconSide, height: Const.iconSide)
     }
 

@@ -67,6 +67,10 @@ class DetaulsViewController: UIViewController {
         view.addSubview(typeImage)
 
         view.addSubview(ageLimitImage)
+        
+        typeImage.image = UIImage(systemName: book.type.imageBookTypeName)
+        ageLimitImage.image = UIImage(systemName: book.ageLimit.imageAgeLimit)
+        
         layout()
     }
     
@@ -89,12 +93,10 @@ class DetaulsViewController: UIViewController {
         bookImage.frame.origin.x = CGFloat(view.frame.midX - (bookImage.frame.size.width / 2))
         bookImage.frame.origin.y = CGFloat(Const.marginLeft)
         
-        typeImage.image = UIImage(systemName: "BookType.imageBookTypeName")
         typeImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
         typeImage.frame.origin.x = CGFloat(Const.insetIcon - typeImage.frame.size.width - Const.marginLeft)
         typeImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginLeft * 2)
         
-        ageLimitImage.image = UIImage(systemName: "AgeLimit.imageAgeLimit")
         ageLimitImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
         ageLimitImage.frame.origin.x = CGFloat(Const.insetIcon + Const.marginLeft)
         ageLimitImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginLeft * 2)
