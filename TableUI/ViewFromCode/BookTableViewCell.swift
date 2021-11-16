@@ -28,7 +28,7 @@ class BookTableViewCell: UITableViewCell {
         
         static let iconSide = cellHeight * 0.4
         static let insetXForIcon = screenWidth - labelWidth - iconSide - marginLeft * 2
-        static let iconInsetX = marginLeft + labelWidth + insetXForIcon
+        static let iconInsetX = screenWidth - marginLeft - iconSide 
         static let iconInsetY = (cellHeight - iconSide * 2) / 3
     }
     
