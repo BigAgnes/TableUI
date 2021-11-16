@@ -30,10 +30,10 @@ class DetaulsViewController: UIViewController {
         static let iconBookImageSide = screenWidth * 0.6
         static let iconSide = screenWidth * 0.1
         
-        static let marginLeft: CGFloat = 12
+        static let horizontalMargin: CGFloat = 12
         static let marginTop: CGFloat = 12
         
-        static let labelBlockInset = marginLeft * 3 + iconBookImageSide + iconSide
+        static let labelBlockInset = marginTop * 3 + iconBookImageSide + iconSide
         static let labelPriceInset = screenHeigth * 0.8
     }
     
@@ -67,19 +67,19 @@ class DetaulsViewController: UIViewController {
     }
     
     private func layout() {
-        titleBookLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        titleBookLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         titleBookLabel.frame.origin.y = CGFloat(Const.labelBlockInset)
         titleBookLabel.sizeToFit()
         
-        fullNameAuthorLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        fullNameAuthorLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         fullNameAuthorLabel.frame.origin.y = CGFloat(Const.labelBlockInset + titleBookLabel.frame.height)
         fullNameAuthorLabel.sizeToFit()
         
-        dateAdmissionLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        dateAdmissionLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         dateAdmissionLabel.frame.origin.y = CGFloat(Const.labelBlockInset + fullNameAuthorLabel.frame.height * 2)
         dateAdmissionLabel.sizeToFit()
         
-        dateExpirationLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        dateExpirationLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         dateExpirationLabel.frame.origin.y = CGFloat(Const.labelBlockInset + dateAdmissionLabel.frame.height * 3)
         dateExpirationLabel.sizeToFit()
         
@@ -97,11 +97,11 @@ class DetaulsViewController: UIViewController {
         
         
         typeImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
-        typeImage.frame.origin.x = CGFloat(Const.insetIcon - typeImage.frame.size.width - Const.marginLeft)
+        typeImage.frame.origin.x = CGFloat(Const.insetIcon - typeImage.frame.size.width - Const.horizontalMargin)
         typeImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginTop * 2)
         
         ageLimitImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
-        ageLimitImage.frame.origin.x = CGFloat(Const.insetIcon + Const.marginLeft)
+        ageLimitImage.frame.origin.x = CGFloat(Const.insetIcon + Const.horizontalMargin)
         ageLimitImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginTop * 2)
     }
     

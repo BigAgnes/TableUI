@@ -16,7 +16,7 @@ class BookTableViewCell: UITableViewCell {
     private let ageLimitImage = UIImageView()
     
     private struct Const {
-        static let marginLeft: CGFloat = 12
+        static let horizontalMargin: CGFloat = 12
         static let marginTop: CGFloat = 10
 
         static var screenWidth: CGFloat {
@@ -27,8 +27,8 @@ class BookTableViewCell: UITableViewCell {
         static let labelHeight = cellHeight / 3
         
         static let iconSide = cellHeight * 0.4
-        static let insetXForIcon = screenWidth - labelWidth - iconSide - marginLeft * 2
-        static let iconInsetX = screenWidth - marginLeft - iconSide 
+        static let insetXForIcon = screenWidth - labelWidth - iconSide - horizontalMargin * 2
+        static let iconInsetX = screenWidth - horizontalMargin - iconSide 
         static let iconInsetY = (cellHeight - iconSide * 2) / 3
     }
     
@@ -54,21 +54,21 @@ class BookTableViewCell: UITableViewCell {
     }
     
     private func layout() {
-        idLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        idLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         idLabel.sizeToFit()
         idLabel.textColor = .gray
         idLabel.textAlignment = .left
         idLabel.font = .systemFont(ofSize: 10)
         
     
-        titleLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        titleLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         titleLabel.frame.origin.y = CGFloat(Const.labelHeight)
         titleLabel.sizeToFit()
         titleLabel.textAlignment = .left
         titleLabel.font = .systemFont(ofSize: 14)
 
     
-        authorLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        authorLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         authorLabel.frame.origin.y = CGFloat(Const.labelHeight * 2)
         authorLabel.sizeToFit()
         authorLabel.textAlignment = .left
