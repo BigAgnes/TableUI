@@ -33,7 +33,9 @@ class DetaulsViewController: UIViewController {
         static let iconBookImageSide = screenWidth * 0.6
         static let iconSide = screenWidth * 0.1
         
-        static let marginLeft = screenWidth * 0.04
+        static let marginLeft: CGFloat = 12
+        static let marginTop: CGFloat = 12
+        
         static let labelBlockInset = marginLeft * 3 + iconBookImageSide + iconSide
         static let labelPriceInset = screenHeigth * 0.8
     }
@@ -41,6 +43,14 @@ class DetaulsViewController: UIViewController {
         
     init() {
         super.init(nibName: nil, bundle: nil)
+        view.addSubview(titleBookLabel)
+        view.addSubview(fullNameAuthorLabel)
+        view.addSubview(dateAdmissionLabel)
+        view.addSubview(dateExpirationLabel)
+        view.addSubview(priceAdmissionLabel)
+        view.addSubview(bookImage)
+        view.addSubview(typeImage)
+        view.addSubview(ageLimitImage)
         }
     
     func setup(book: Book) {
@@ -48,25 +58,10 @@ class DetaulsViewController: UIViewController {
         view.backgroundColor = .white
 
         titleBookLabel.text = "Название: \(book.title)"
-        view.addSubview(titleBookLabel)
-        
         fullNameAuthorLabel.text = "Автор: \(book.authorFullName ?? "")"
-        view.addSubview(fullNameAuthorLabel)
-        
         dateAdmissionLabel.text = "Дата поступления: \(book.admissionDate)"
-        view.addSubview(dateAdmissionLabel)
-        
         dateExpirationLabel.text = "Выдана до: \(book.expirationDate ?? "")"
-        view.addSubview(dateExpirationLabel)
-        
         priceAdmissionLabel.text = "\(book.admissionPrice)"
-        view.addSubview(priceAdmissionLabel)
-        
-        view.addSubview(bookImage)
-    
-        view.addSubview(typeImage)
-
-        view.addSubview(ageLimitImage)
         
         typeImage.image = UIImage(systemName: book.type.imageBookTypeName)
         ageLimitImage.image = UIImage(systemName: book.ageLimit.imageAgeLimit)
@@ -91,15 +86,16 @@ class DetaulsViewController: UIViewController {
         bookImage.image = UIImage(named: "bookImg.jpg")
         bookImage.frame.size = CGSize(width: Const.iconBookImageSide, height: Const.iconBookImageSide)
         bookImage.frame.origin.x = CGFloat(view.frame.midX - (bookImage.frame.size.width / 2))
-        bookImage.frame.origin.y = CGFloat(Const.marginLeft)
+        bookImage.frame.origin.y = CGFloat(Const.marginTop)
+        
         
         typeImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
         typeImage.frame.origin.x = CGFloat(Const.insetIcon - typeImage.frame.size.width - Const.marginLeft)
-        typeImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginLeft * 2)
+        typeImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginTop * 2)
         
         ageLimitImage.frame.size = CGSize(width: Const.iconSide, height: Const.iconSide)
         ageLimitImage.frame.origin.x = CGFloat(Const.insetIcon + Const.marginLeft)
-        ageLimitImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginLeft * 2)
+        ageLimitImage.frame.origin.y = CGFloat(bookImage.frame.height + Const.marginTop * 2)
     }
     
     required init?(coder: NSCoder) {

@@ -33,17 +33,14 @@ class BookTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    
-    func setup(book: Book) {
-        
         self.addSubview(idLabel)
         self.addSubview(titleLabel)
         self.addSubview(authorLabel)
         self.addSubview(typeImage)
         self.addSubview(ageLimitImage)
-        
+    }
+    
+    func setup(book: Book) {
         self.idLabel.text = String(book.id)
         self.titleLabel.text = book.title
         self.authorLabel.text = book.author
