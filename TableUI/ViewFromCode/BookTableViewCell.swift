@@ -17,6 +17,8 @@ class BookTableViewCell: UITableViewCell {
     
     private struct Const {
         static let marginLeft: CGFloat = 12
+        static let marginTop: CGFloat = 10
+
         static var screenWidth: CGFloat {
             UIScreen.main.bounds.size.width
         }
@@ -52,18 +54,23 @@ class BookTableViewCell: UITableViewCell {
     }
     
     private func layout() {
-        idLabel.frame = CGRect(x: Const.marginLeft, y: 0, width: Const.labelWidth, height: Const.labelHeight)
+        idLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        idLabel.sizeToFit()
         idLabel.textColor = .gray
         idLabel.textAlignment = .left
         idLabel.font = .systemFont(ofSize: 10)
         
     
-        titleLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelHeight, width: Const.labelWidth, height: Const.labelHeight)
+        titleLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        titleLabel.frame.origin.y = CGFloat(Const.labelHeight)
+        titleLabel.sizeToFit()
         titleLabel.textAlignment = .left
         titleLabel.font = .systemFont(ofSize: 14)
 
     
-        authorLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelHeight * 2, width: Const.labelWidth, height: Const.labelHeight)
+        authorLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        authorLabel.frame.origin.y = CGFloat(Const.labelHeight * 2)
+        authorLabel.sizeToFit()
         authorLabel.textAlignment = .left
         authorLabel.font = .systemFont(ofSize: 14)
         

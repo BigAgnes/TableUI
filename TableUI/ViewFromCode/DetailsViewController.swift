@@ -26,9 +26,6 @@ class DetaulsViewController: UIViewController {
         static var screenHeigth: CGFloat {
             UIScreen.main.bounds.size.height
         }
-        static let labelWidth: CGFloat = screenWidth * 0.8
-        static let labelHeight: CGFloat = 40
-        
         static let insetIcon = screenWidth * 0.5
         static let iconBookImageSide = screenWidth * 0.6
         static let iconSide = screenWidth * 0.1
@@ -70,18 +67,28 @@ class DetaulsViewController: UIViewController {
     }
     
     private func layout() {
-        titleBookLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset, width: Const.labelWidth, height: Const.labelHeight)
+        titleBookLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        titleBookLabel.frame.origin.y = CGFloat(Const.labelBlockInset)
+        titleBookLabel.sizeToFit()
         
-        fullNameAuthorLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset + Const.labelHeight, width: Const.labelWidth, height: Const.labelHeight)
+        fullNameAuthorLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        fullNameAuthorLabel.frame.origin.y = CGFloat(Const.labelBlockInset + titleBookLabel.frame.height)
+        fullNameAuthorLabel.sizeToFit()
         
-        dateAdmissionLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset + Const.labelHeight * 2, width: Const.labelWidth, height: Const.labelHeight)
+        dateAdmissionLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        dateAdmissionLabel.frame.origin.y = CGFloat(Const.labelBlockInset + fullNameAuthorLabel.frame.height * 2)
+        dateAdmissionLabel.sizeToFit()
         
-        dateExpirationLabel.frame = CGRect(x: Const.marginLeft, y: Const.labelBlockInset + Const.labelHeight * 3, width: Const.labelWidth, height: Const.labelHeight)
+        dateExpirationLabel.frame.origin.x = CGFloat(Const.marginLeft)
+        dateExpirationLabel.frame.origin.y = CGFloat(Const.labelBlockInset + dateAdmissionLabel.frame.height * 3)
+        dateExpirationLabel.sizeToFit()
         
-        priceAdmissionLabel.frame = CGRect(x: Const.insetIcon - Const.labelWidth / 2, y: Const.labelPriceInset, width: Const.labelWidth, height: Const.labelHeight)
+        priceAdmissionLabel.frame.origin.y = CGFloat(Const.labelPriceInset)
         priceAdmissionLabel.font = .systemFont(ofSize: 40)
-        priceAdmissionLabel.textAlignment = .center
+        priceAdmissionLabel.sizeToFit()
+        priceAdmissionLabel.frame.origin.x = CGFloat(Const.insetIcon - (priceAdmissionLabel.frame.width / 2))
         priceAdmissionLabel.textColor = .darkGray
+
         
         bookImage.image = UIImage(named: "bookImg.jpg")
         bookImage.frame.size = CGSize(width: Const.iconBookImageSide, height: Const.iconBookImageSide)
