@@ -15,6 +15,10 @@ class BookTableViewCell: UITableViewCell {
     private let typeImage = UIImageView()
     private let ageLimitImage = UIImageView()
     
+    let horizontalMargin: CGFloat = 12
+    let marginTop: CGFloat = 10
+    let iconSide: CGFloat = 27
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(idLabel)
@@ -31,16 +35,9 @@ class BookTableViewCell: UITableViewCell {
         
         typeImage.image = UIImage(systemName: book.type.imageBookTypeName)
         ageLimitImage.image = UIImage(systemName: book.ageLimit.imageAgeLimit)
-        
-        layout()
     }
     
     private func layout() {
-        
-        let horizontalMargin: CGFloat = 12
-        let marginTop: CGFloat = 10
-        //var cellHeight: CGFloat = authorLabel.frame.origin.y + authorLabel.frame.height + marginTop
-        let iconSide: CGFloat = 27
         
         idLabel.sizeToFit()
         titleLabel.sizeToFit()
@@ -54,7 +51,7 @@ class BookTableViewCell: UITableViewCell {
         
     
         titleLabel.frame.origin.x = CGFloat(horizontalMargin)
-        titleLabel.frame.origin.y = CGFloat(idLabel.frame.origin.y + idLabel.frame.height + marginTop)
+        titleLabel.frame.origin.y = CGFloat(idLabel.frame.maxY + marginTop)
         titleLabel.textAlignment = .left
         titleLabel.font = .systemFont(ofSize: 14)
 
@@ -67,13 +64,12 @@ class BookTableViewCell: UITableViewCell {
         typeImage.frame = CGRect(x: UIScreen.main.bounds.maxX - horizontalMargin - iconSide, y: marginTop, width: iconSide, height: iconSide)
     
         ageLimitImage.frame = CGRect(x: UIScreen.main.bounds.maxX - horizontalMargin - iconSide, y: typeImage.frame.origin.y + typeImage.frame.height + marginTop, width: iconSide, height: iconSide)
-        
-        
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
-        self.sizeToFit()
-        return self.sizeThatFits(size)
+        layout()
+        let cellHeight: CGFloat = authorLabel.frame.origin.y + authorLabel.frame.height + marginTop
+        return CGSize(width: size.width, height: cellHeight)
     }
 
     required init?(coder: NSCoder) {
