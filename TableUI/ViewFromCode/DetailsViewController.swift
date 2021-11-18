@@ -59,10 +59,16 @@ class DetaulsViewController: UIViewController {
         
         typeImage.image = UIImage(systemName: book.type.imageBookTypeName)
         ageLimitImage.image = UIImage(systemName: book.ageLimit.imageAgeLimit)
+        
+        layout()
 }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        layout()
+    }
     
-    func layout(screenHeigth: CGFloat) {
-        let heightView = Const.screenHeigth - screenHeigth
+    func layout() {
+        print(Const.screenHeigth)
         titleBookLabel.sizeToFit()
         fullNameAuthorLabel.sizeToFit()
         dateAdmissionLabel.sizeToFit()
@@ -92,7 +98,7 @@ class DetaulsViewController: UIViewController {
         dateExpirationLabel.frame.origin.y = CGFloat(dateAdmissionLabel.frame.maxY + Const.marginTop)
     
         priceAdmissionLabel.frame.origin.x = CGFloat(Const.screenWidth/2 - priceAdmissionLabel.frame.width/2)
-        priceAdmissionLabel.frame.origin.y = CGFloat(heightView - Const.marginTop - priceAdmissionLabel.frame.height)
+        priceAdmissionLabel.frame.origin.y = CGFloat(Const.screenHeigth - Const.marginTop - priceAdmissionLabel.frame.height)
     }
     
     required init?(coder: NSCoder) {
