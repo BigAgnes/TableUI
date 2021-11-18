@@ -62,6 +62,7 @@ class BookTableViewCell: UITableViewCell {
     
     private func layout() {
         let cellHeight = self.contentView.bounds.height
+        let iconMarginX = self.frame.width - Const.horizontalMargin - Const.iconSide
         
         idLabel.sizeToFit()
         titleLabel.sizeToFit()
@@ -74,11 +75,11 @@ class BookTableViewCell: UITableViewCell {
         titleLabel.frame.origin.y = CGFloat(idLabel.frame.maxY + Const.marginTop)
     
         authorLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
-        authorLabel.frame.origin.y = CGFloat(titleLabel.frame.origin.y + titleLabel.frame.height + Const.marginTop)
+        authorLabel.frame.origin.y = CGFloat(titleLabel.frame.maxY + Const.marginTop)
         
-        typeImage.frame = CGRect(x: self.frame.width - Const.horizontalMargin - Const.iconSide, y: cellHeight/2 - Const.iconsStack/2, width: Const.iconSide, height: Const.iconSide)
+        typeImage.frame = CGRect(x: iconMarginX, y: cellHeight/2 - Const.iconsStack/2, width: Const.iconSide, height: Const.iconSide)
     
-        ageLimitImage.frame = CGRect(x: self.frame.width - Const.horizontalMargin - Const.iconSide, y: cellHeight/2 + Const.marginTop/2, width: Const.iconSide, height: Const.iconSide)
+        ageLimitImage.frame = CGRect(x: iconMarginX, y: cellHeight/2 + Const.marginTop/2, width: Const.iconSide, height: Const.iconSide)
     }
     
     required init?(coder: NSCoder) {
