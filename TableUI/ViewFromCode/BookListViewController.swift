@@ -42,7 +42,7 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let bookInfo = DetaulsViewController()
+        let bookInfo = DetailsViewController()
         bookInfo.setup(book: self.books[indexPath.row])
         present(bookInfo, animated: true) 
     }
