@@ -7,70 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8CFE9C1E-8675-4168-BC0F-AF759A639C92"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TableUI/ViewFromCode/BookTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "layoutSubviews()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8CFE9C1E-8675-4168-BC0F-AF759A639C92 - 597113da22fbb395"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TableUI.BookTableViewCell.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TableUI.BookTableViewCell&gt;"
-                  moduleName = "TableUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kristina_maksimova/Documents/TableUIGit/TableUI/TableUI/ViewFromCode/BookTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "23">
-               </Location>
-               <Location
-                  uuid = "8CFE9C1E-8675-4168-BC0F-AF759A639C92 - 3ef88085a7926496"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TableUI.BookTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TableUI.BookTableViewCell&gt;"
-                  moduleName = "TableUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kristina_maksimova/Documents/TableUIGit/TableUI/TableUI/ViewFromCode/BookTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "147">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D13E9B28-C5B8-4E9B-AA33-1865076DD061"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TableUI/ViewFromCode/BookTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "sizeThatFits(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "07FEABE6-7842-406E-913C-F4E21DA13389"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -78,10 +14,10 @@
             filePath = "TableUI/ViewFromCode/BookTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "layout()"
-            landmarkType = "7">
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "BookTableViewCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,24 +30,8 @@
             filePath = "TableUI/ViewFromCode/BookTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "layout()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "56B246C4-408C-4A91-BFB2-E80143DD8599"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TableUI/ViewFromCode/BookTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "layout()"
             landmarkType = "7">
          </BreakpointContent>
