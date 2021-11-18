@@ -15,23 +15,6 @@ class BookTableViewCell: UITableViewCell {
     private let typeImage = UIImageView()
     private let ageLimitImage = UIImageView()
     
-    private struct Const {
-        static let horizontalMargin: CGFloat = 12
-        static let marginTop: CGFloat = 10
-
-        static var screenWidth: CGFloat {
-            UIScreen.main.bounds.size.width
-        }
-        static var cellHeight: CGFloat = 90
-        static let labelWidth = screenWidth * 0.72
-        static let labelHeight = cellHeight / 3
-        
-        static let iconSide = cellHeight * 0.4
-        static let iconInsetX = screenWidth - horizontalMargin - iconSide 
-        static let iconInsetY = (cellHeight - iconSide * 2) / 3
-    }
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(idLabel)
@@ -53,32 +36,46 @@ class BookTableViewCell: UITableViewCell {
     }
     
     private func layout() {
-        idLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
+        
+        let horizontalMargin: CGFloat = 12
+        let marginTop: CGFloat = 10
+        //var cellHeight: CGFloat = authorLabel.frame.origin.y + authorLabel.frame.height + marginTop
+        let iconSide: CGFloat = 27
+        
         idLabel.sizeToFit()
+        titleLabel.sizeToFit()
+        authorLabel.sizeToFit()
+        
+        idLabel.frame.origin.x = CGFloat(horizontalMargin)
+        idLabel.frame.origin.y = CGFloat(horizontalMargin)
         idLabel.textColor = .gray
         idLabel.textAlignment = .left
         idLabel.font = .systemFont(ofSize: 10)
         
     
-        titleLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
-        titleLabel.frame.origin.y = CGFloat(Const.labelHeight)
-        titleLabel.sizeToFit()
+        titleLabel.frame.origin.x = CGFloat(horizontalMargin)
+        titleLabel.frame.origin.y = CGFloat(idLabel.frame.origin.y + idLabel.frame.height + marginTop)
         titleLabel.textAlignment = .left
         titleLabel.font = .systemFont(ofSize: 14)
 
     
-        authorLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
-        authorLabel.frame.origin.y = CGFloat(Const.labelHeight * 2)
-        authorLabel.sizeToFit()
+        authorLabel.frame.origin.x = CGFloat(horizontalMargin)
+        authorLabel.frame.origin.y = CGFloat(titleLabel.frame.origin.y + titleLabel.frame.height + marginTop)
         authorLabel.textAlignment = .left
         authorLabel.font = .systemFont(ofSize: 14)
         
-        typeImage.frame = CGRect(x: Const.iconInsetX, y: Const.iconInsetY, width: Const.iconSide, height: Const.iconSide)
+        typeImage.frame = CGRect(x: UIScreen.main.bounds.maxX - horizontalMargin - iconSide, y: marginTop, width: iconSide, height: iconSide)
     
-        ageLimitImage.frame = CGRect(x: Const.iconInsetX, y: Const.iconInsetY * 2 + Const.iconSide , width: Const.iconSide, height: Const.iconSide)
+        ageLimitImage.frame = CGRect(x: UIScreen.main.bounds.maxX - horizontalMargin - iconSide, y: typeImage.frame.origin.y + typeImage.frame.height + marginTop, width: iconSide, height: iconSide)
+        
+        
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        self.sizeToFit()
+        return self.sizeThatFits(size)
     }
 
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

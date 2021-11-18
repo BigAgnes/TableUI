@@ -25,6 +25,7 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
         books = BookDecoder().decode()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(BookTableViewCell.self, forCellReuseIdentifier: "BookTableViewCell")
     }
     
