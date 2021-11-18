@@ -9,6 +9,13 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
+    struct Const {
+        static let horizontalMargin: CGFloat = 12
+        static let marginTop: CGFloat = 10
+        static let iconSide: CGFloat = 27
+        static let iconBookImageSide: CGFloat = 300
+        static let iconsStack: CGFloat = iconSide * 2 + horizontalMargin
+    }
     private let dateExpirationLabel = UILabel()
     private let dateAdmissionLabel = UILabel()
     private let priceAdmissionLabel = UILabel()
@@ -18,14 +25,6 @@ class DetailsViewController: UIViewController {
     private let typeImage = UIImageView()
     private let bookImage = UIImageView()
     private let ageLimitImage = UIImageView()
-    
-    struct Const {
-        static let horizontalMargin: CGFloat = 12
-        static let marginTop: CGFloat = 10
-        static let iconSide: CGFloat = 27
-        static let iconBookImageSide: CGFloat = 300
-        static let iconsStack: CGFloat = iconSide * 2 + horizontalMargin
-    }
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -37,6 +36,8 @@ class DetailsViewController: UIViewController {
         priceAdmissionLabel.font = .systemFont(ofSize: 40)
         priceAdmissionLabel.textColor = .darkGray
         view.addSubview(priceAdmissionLabel)
+        
+        bookImage.image = UIImage(named: "bookImg.jpg")
         view.addSubview(bookImage)
         view.addSubview(typeImage)
         view.addSubview(ageLimitImage)
@@ -67,7 +68,6 @@ class DetailsViewController: UIViewController {
         dateExpirationLabel.sizeToFit()
         priceAdmissionLabel.sizeToFit()
 
-        bookImage.image = UIImage(named: "bookImg.jpg")
         bookImage.frame.size = CGSize(width: Const.iconBookImageSide, height: Const.iconBookImageSide)
         bookImage.frame.origin.x = CGFloat(view.bounds.width/2 - bookImage.frame.width/2)
         bookImage.frame.origin.y = CGFloat(Const.marginTop)
