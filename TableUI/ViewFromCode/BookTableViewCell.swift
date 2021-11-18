@@ -18,6 +18,7 @@ class BookTableViewCell: UITableViewCell {
     let horizontalMargin: CGFloat = 12
     let marginTop: CGFloat = 10
     let iconSide: CGFloat = 27
+    var cellHeight: CGFloat = 0
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,13 +39,15 @@ class BookTableViewCell: UITableViewCell {
     }
     
     private func layout() {
+        let iconsStack = iconSide * 2 + 12
+        cellHeight = self.contentView.bounds.height
         
         idLabel.sizeToFit()
         titleLabel.sizeToFit()
         authorLabel.sizeToFit()
         
         idLabel.frame.origin.x = CGFloat(horizontalMargin)
-        idLabel.frame.origin.y = CGFloat(horizontalMargin)
+        idLabel.frame.origin.y = CGFloat(marginTop)
         idLabel.textColor = .gray
         idLabel.textAlignment = .left
         idLabel.font = .systemFont(ofSize: 10)
@@ -61,15 +64,20 @@ class BookTableViewCell: UITableViewCell {
         authorLabel.textAlignment = .left
         authorLabel.font = .systemFont(ofSize: 14)
         
-        typeImage.frame = CGRect(x: UIScreen.main.bounds.maxX - horizontalMargin - iconSide, y: marginTop, width: iconSide, height: iconSide)
+        typeImage.frame = CGRect(x: self.frame.width - horizontalMargin - iconSide, y: cellHeight/2 - iconsStack/2, width: iconSide, height: iconSide)
     
-        ageLimitImage.frame = CGRect(x: UIScreen.main.bounds.maxX - horizontalMargin - iconSide, y: typeImage.frame.origin.y + typeImage.frame.height + marginTop, width: iconSide, height: iconSide)
+        ageLimitImage.frame = CGRect(x: self.frame.width - horizontalMargin - iconSide, y: cellHeight/2 + marginTop/2, width: iconSide, height: iconSide)
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         layout()
-        let cellHeight: CGFloat = authorLabel.frame.origin.y + authorLabel.frame.height + marginTop
+        cellHeight = authorLabel.frame.maxY + marginTop
         return CGSize(width: size.width, height: cellHeight)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layout()
     }
 
     required init?(coder: NSCoder) {
