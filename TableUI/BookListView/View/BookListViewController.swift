@@ -6,11 +6,11 @@
 //
 
 import UIKit
-
+import SwiftUI
 
 class BookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var bookViewModel = BookViewModel()
+    @ObservedObject private var bookViewModel = BookViewModel()
     private let tableView = UITableView()
     
     override func loadView() {
@@ -23,7 +23,7 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.title = "Library"
         self.view.backgroundColor = .white
         bookViewModel.fetchBooks()
-        
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension

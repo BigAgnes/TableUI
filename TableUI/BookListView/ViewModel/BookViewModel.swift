@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Combine
 
-class BookViewModel {
+class BookViewModel: ObservableObject {
     
-    private(set) var books: [Book] = []
+    @Published var books: [Book] = []
     
     func fetchBooks() {
         books = BookDecoder().decode()
