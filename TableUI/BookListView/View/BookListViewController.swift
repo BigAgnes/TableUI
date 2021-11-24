@@ -12,7 +12,6 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private var bookViewModel = BookViewModel()
     private let tableView = UITableView()
-    private var books: [Book] = []
     
     override func loadView() {
         super.loadView()
@@ -24,7 +23,7 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.title = "Library"
         self.view.backgroundColor = .white
         bookViewModel.fetchBooks()
-        books = bookViewModel.books
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -32,7 +31,7 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books.count
+        return bookViewModel.books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,11 +44,11 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let bookInfo = DetailsViewController()
-        bookInfo.setup(book: self.books[indexPath.row])
+        bookInfo.setup(book: self.bookViewModel.books[indexPath.row])
         present(bookInfo, animated: true)
     }
     
     private func book(by indexPath: IndexPath) -> Book {
-        books[indexPath.row]
+        bookViewModel.books[indexPath.row]
     }
 }
