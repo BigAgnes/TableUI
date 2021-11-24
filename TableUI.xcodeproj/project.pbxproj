@@ -72,9 +72,8 @@
 		AF403A36272C7137006203B5 /* TableUI */ = {
 			isa = PBXGroup;
 			children = (
-				AF8EA0A0274D04630086FE14 /* View */,
-				AFC590A2273E8980005B8C2E /* ViewModel */,
-				AFC5909F273E854E005B8C2E /* Model */,
+				AF56F673274E1454008408D2 /* DitailsView */,
+				AF56F672274E1425008408D2 /* BookListView */,
 				AFC5909E273E852D005B8C2E /* OldView */,
 				AFC5909D273E84F2005B8C2E /* Application */,
 				AF403A45272C7139006203B5 /* Info.plist */,
@@ -82,11 +81,60 @@
 			path = TableUI;
 			sourceTree = "<group>";
 		};
-		AF8EA0A0274D04630086FE14 /* View */ = {
+		AF56F672274E1425008408D2 /* BookListView */ = {
+			isa = PBXGroup;
+			children = (
+				AFC5909F273E854E005B8C2E /* Model */,
+				AF56F677274E14BC008408D2 /* ViewModel */,
+				AF56F676274E14AC008408D2 /* View */,
+			);
+			path = BookListView;
+			sourceTree = "<group>";
+		};
+		AF56F673274E1454008408D2 /* DitailsView */ = {
+			isa = PBXGroup;
+			children = (
+				AF56F675274E149D008408D2 /* Model */,
+				AF56F674274E1492008408D2 /* ViewModel */,
+				AF8EA0A0274D04630086FE14 /* View */,
+			);
+			path = DitailsView;
+			sourceTree = "<group>";
+		};
+		AF56F674274E1492008408D2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF56F675274E149D008408D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF56F676274E14AC008408D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				AFC590A3273E89C6005B8C2E /* BookListViewController.swift */,
 				AFC590A5273E89F3005B8C2E /* BookTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF56F677274E14BC008408D2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF8EA0A1274D06340086FE14 /* BookViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF8EA0A0274D04630086FE14 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				AFC590A7273EB60C005B8C2E /* DetailsViewController.swift */,
 			);
 			path = View;
@@ -121,14 +169,6 @@
 				AF7F4123273D810B003F6D32 /* Book.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		AFC590A2273E8980005B8C2E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AF8EA0A1274D06340086FE14 /* BookViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

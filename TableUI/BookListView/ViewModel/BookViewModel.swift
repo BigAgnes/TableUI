@@ -11,8 +11,7 @@ class BookViewModel {
     
     private(set) var books: [Book] = []
     
-    func decodeBook () -> [Book] {
-        let books = BookDecoder().decode()
-        return books
+    func fetchBooks() {
+        books = BookDecoder().decode()
     }
 }

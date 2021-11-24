@@ -10,8 +10,9 @@ import UIKit
 
 class BookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var books = BookViewModel().decodeBook()
+    private var bookViewModel = BookViewModel()
     private let tableView = UITableView()
+    private var books: [Book] = []
     
     override func loadView() {
         super.loadView()
@@ -22,7 +23,8 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         self.title = "Library"
         self.view.backgroundColor = .white
-        
+        bookViewModel.fetchBooks()
+        books = bookViewModel.books
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
