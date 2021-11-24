@@ -9,8 +9,8 @@ import Foundation
 
 class BookDecoder {
     
-    let resource = "file"
-    let ext = "json"
+    private let resource = "file"
+    private let ext = "json"
     
     func decode () -> [Book] {
         guard let url = Bundle.main.url(forResource: resource, withExtension: ext) else { return [] }

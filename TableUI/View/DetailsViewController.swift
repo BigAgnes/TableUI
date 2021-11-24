@@ -13,7 +13,6 @@ class DetailsViewController: UIViewController {
         static let horizontalMargin: CGFloat = 12
         static let marginTop: CGFloat = 10
         static let iconSide: CGFloat = 27
-        static let iconBookImageSide: CGFloat = 300
         static let iconsStack: CGFloat = iconSide * 2 + horizontalMargin
     }
     private let dateExpirationLabel = UILabel()
@@ -62,20 +61,22 @@ class DetailsViewController: UIViewController {
     }
     
     func layout() {
+        let iconBookImageSide: CGFloat = view.frame.height * 0.3
+        
         titleBookLabel.sizeToFit()
         fullNameAuthorLabel.sizeToFit()
         dateAdmissionLabel.sizeToFit()
         dateExpirationLabel.sizeToFit()
         priceAdmissionLabel.sizeToFit()
 
-        bookImage.frame.size = CGSize(width: Const.iconBookImageSide, height: Const.iconBookImageSide)
+        bookImage.frame.size = CGSize(width: iconBookImageSide, height: iconBookImageSide)
         bookImage.frame.origin.x = CGFloat(view.bounds.width/2 - bookImage.frame.width/2)
         bookImage.frame.origin.y = CGFloat(Const.marginTop)
 
         
-        typeImage.frame = CGRect(x: view.bounds.width/2 - Const.iconsStack/2, y: Const.marginTop * 2 + Const.iconBookImageSide, width: Const.iconSide, height: Const.iconSide)
+        typeImage.frame = CGRect(x: view.bounds.width/2 - Const.iconsStack/2, y: Const.marginTop * 2 + iconBookImageSide, width: Const.iconSide, height: Const.iconSide)
         
-        ageLimitImage.frame = CGRect(x: view.bounds.width/2 + Const.horizontalMargin/2, y: Const.iconBookImageSide + Const.marginTop * 2, width: Const.iconSide, height: Const.iconSide)
+        ageLimitImage.frame = CGRect(x: view.bounds.width/2 + Const.horizontalMargin/2, y: iconBookImageSide + Const.marginTop * 2, width: Const.iconSide, height: Const.iconSide)
         
         titleBookLabel.frame.origin.x = CGFloat(Const.horizontalMargin)
         titleBookLabel.frame.origin.y = CGFloat(typeImage.frame.maxY + Const.marginTop)
