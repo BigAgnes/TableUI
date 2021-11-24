@@ -22,12 +22,21 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         self.title = "Library"
         self.view.backgroundColor = .white
-        bookViewModel.fetchBooks()
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.bookViewModel.fetchBooks()
+        }
+        binding()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(BookTableViewCell.self, forCellReuseIdentifier: "BookTableViewCell")
+    }
+    
+    func binding() {
+        bookViewModel.$books
+            .sink { _ in
+                self.tableView.reloadData()
+            }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
