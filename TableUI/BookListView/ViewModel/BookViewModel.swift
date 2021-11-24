@@ -11,6 +11,7 @@ import Combine
 class BookViewModel: ObservableObject {
     
     @Published var books: [Book] = []
+    private var cancellableSet: Set<AnyCancellable> = []
     
     func fetchBooks() {
         books = BookDecoder().decode()

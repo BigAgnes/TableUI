@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import SwiftUI
+import Combine
 
 class BookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @ObservedObject private var bookViewModel = BookViewModel()
+    private var bookViewModel = BookViewModel()
     private let tableView = UITableView()
     
     override func loadView() {
@@ -24,8 +24,8 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.view.backgroundColor = .white
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.bookViewModel.fetchBooks()
+            self.binding()
         }
-        binding()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -34,10 +34,13 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func binding() {
         bookViewModel.$books
-            .sink { _ in
+            .sink (receiveValue: { _ in
                 self.tableView.reloadData()
-            }
+            })
+            .store(in: &cancellable)
     }
+    
+    private var cancellable = Set<AnyCancellable>()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookViewModel.books.count
