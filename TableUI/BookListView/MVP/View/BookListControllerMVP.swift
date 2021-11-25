@@ -28,6 +28,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         self.title = "Library"
         self.view.backgroundColor = .white
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.bookPresenter.view = self
             self.bookPresenter.fetchBooks()
         }
         tableView.dataSource = self
