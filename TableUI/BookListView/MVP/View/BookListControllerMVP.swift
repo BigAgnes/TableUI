@@ -12,7 +12,7 @@ protocol BookListPresenterProtocol {
     func fetchBooks()
 }
 
-class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListPresenterProtocol, BookListView {
+class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListView {
     
     private var bookPresenter = BooksPresenter()
     private let tableView = UITableView()
@@ -36,14 +36,10 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(BookTableViewCell.self, forCellReuseIdentifier: "BookTableViewCell")
     }
     
-    func fetchBooks() {
-        bookPresenter.fetchBooks()
-    }
-    
     func showBooks(_ books: [Book]) {
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         bookPresenter.books.count
     }
