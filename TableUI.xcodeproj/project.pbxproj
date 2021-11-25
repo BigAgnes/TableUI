@@ -19,6 +19,9 @@
 		AF7F4128273D8752003F6D32 /* file.json in Resources */ = {isa = PBXBuildFile; fileRef = AF7F4127273D8752003F6D32 /* file.json */; };
 		AF7F412A273D88CE003F6D32 /* BookDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F4129273D88CE003F6D32 /* BookDecoder.swift */; };
 		AF7F412C273D8CDB003F6D32 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F412B273D8CDB003F6D32 /* BookCell.swift */; };
+		AF8E3DAB274FC9AC00BB7BF5 /* BookListControllerViper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E3DAA274FC9AC00BB7BF5 /* BookListControllerViper.swift */; };
+		AF8E3DB5274FCC1700BB7BF5 /* PresenterForViper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E3DB4274FCC1700BB7BF5 /* PresenterForViper.swift */; };
+		AF8E3DB7274FCD0900BB7BF5 /* RouterForViper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E3DB6274FCD0900BB7BF5 /* RouterForViper.swift */; };
 		AF8EA0A2274D06340086FE14 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8EA0A1274D06340086FE14 /* BookViewModel.swift */; };
 		AFC590A4273E89C6005B8C2E /* BookListViewControllerMVVN.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC590A3273E89C6005B8C2E /* BookListViewControllerMVVN.swift */; };
 		AFC590A6273E89F3005B8C2E /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC590A5273E89F3005B8C2E /* BookTableViewCell.swift */; };
@@ -40,6 +43,9 @@
 		AF7F4127273D8752003F6D32 /* file.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = file.json; sourceTree = "<group>"; };
 		AF7F4129273D88CE003F6D32 /* BookDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDecoder.swift; sourceTree = "<group>"; };
 		AF7F412B273D8CDB003F6D32 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		AF8E3DAA274FC9AC00BB7BF5 /* BookListControllerViper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListControllerViper.swift; sourceTree = "<group>"; };
+		AF8E3DB4274FCC1700BB7BF5 /* PresenterForViper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterForViper.swift; sourceTree = "<group>"; };
+		AF8E3DB6274FCD0900BB7BF5 /* RouterForViper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterForViper.swift; sourceTree = "<group>"; };
 		AF8EA0A1274D06340086FE14 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		AFC590A3273E89C6005B8C2E /* BookListViewControllerMVVN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewControllerMVVN.swift; sourceTree = "<group>"; };
 		AFC590A5273E89F3005B8C2E /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
@@ -174,8 +180,59 @@
 		AF8E3DA9274FC94F00BB7BF5 /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
+				AF8E3DB0274FCA7800BB7BF5 /* Model */,
+				AF8E3DAF274FCA5A00BB7BF5 /* Router */,
+				AF8E3DAE274FCA4000BB7BF5 /* View */,
+				AF8E3DAD274FCA0900BB7BF5 /* Presenter */,
 			);
 			path = VIPER;
+			sourceTree = "<group>";
+		};
+		AF8E3DAC274FC9F500BB7BF5 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AF8E3DAD274FCA0900BB7BF5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AF8E3DB4274FCC1700BB7BF5 /* PresenterForViper.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AF8E3DAE274FCA4000BB7BF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF8E3DAA274FC9AC00BB7BF5 /* BookListControllerViper.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF8E3DAF274FCA5A00BB7BF5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AF8E3DB6274FCD0900BB7BF5 /* RouterForViper.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AF8E3DB0274FCA7800BB7BF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF8E3DB1274FCA8500BB7BF5 /* Entity */,
+				AF8E3DAC274FC9F500BB7BF5 /* Interactor */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF8E3DB1274FCA8500BB7BF5 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		AF8EA0A0274D04630086FE14 /* View */ = {
@@ -297,7 +354,10 @@
 				AF7F4126273D8406003F6D32 /* BookList.swift in Sources */,
 				AF403A38272C7137006203B5 /* AppDelegate.swift in Sources */,
 				AF8EA0A2274D06340086FE14 /* BookViewModel.swift in Sources */,
+				AF8E3DB7274FCD0900BB7BF5 /* RouterForViper.swift in Sources */,
 				AF7F412A273D88CE003F6D32 /* BookDecoder.swift in Sources */,
+				AF8E3DB5274FCC1700BB7BF5 /* PresenterForViper.swift in Sources */,
+				AF8E3DAB274FC9AC00BB7BF5 /* BookListControllerViper.swift in Sources */,
 				AF7F4124273D810B003F6D32 /* Book.swift in Sources */,
 				AF403A3A272C7137006203B5 /* SceneDelegate.swift in Sources */,
 				AFC590A4273E89C6005B8C2E /* BookListViewControllerMVVN.swift in Sources */,
