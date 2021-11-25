@@ -9,13 +9,14 @@ import UIKit
 import Combine
 
 protocol BookListPresenterProtocol {
-    func fetchBooks()
+    func fetchBooks() -> [Book]
 }
 
 class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListView {
     
     private var bookPresenter = BooksPresenter()
     private let tableView = UITableView()
+    private var books: [Book] = []
     
     override func loadView() {
         super.loadView()
@@ -27,8 +28,8 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         self.title = "Library"
         self.view.backgroundColor = .white
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.bookPresenter.fetchBooks()
-            self.showBooks(self.bookPresenter.books)
+            self.books = self.bookPresenter.fetchBooks()
+//            self.showBooks(self.books)
         }
         tableView.dataSource = self
         tableView.delegate = self
@@ -41,7 +42,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        bookPresenter.books.count
+        books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,12 +55,12 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let bookInfo = DetailsViewController()
-        bookInfo.setup(book: self.bookPresenter.books[indexPath.row])
+        bookInfo.setup(book: self.books[indexPath.row])
         present(bookInfo, animated: true)
     }
     
     private func book(by indexPath: IndexPath) -> Book {
-        bookPresenter.books[indexPath.row]
+        books[indexPath.row]
     }
 }
 

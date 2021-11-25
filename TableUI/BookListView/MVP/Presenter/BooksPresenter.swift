@@ -12,9 +12,9 @@ protocol BookListView {
 }
 
 class BooksPresenter: BookListPresenterProtocol {
-    private(set) var books: [Book] = []
+//    private(set) var books: [Book] = []
     
-    func fetchBooks() {
-        books = BookDecoder().decode()
+    func fetchBooks() -> [Book] {
+        BookDecoder().decode()
     }
 }
