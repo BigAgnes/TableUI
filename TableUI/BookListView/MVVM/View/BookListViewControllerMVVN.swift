@@ -8,9 +8,10 @@
 import UIKit
 import Combine
 
-class BookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BookListViewControllerMVVN: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var bookViewModel = BookViewModel()
+    private var cancellables: Set<AnyCancellable> = []
     private let tableView = UITableView()
     
     override func loadView() {
@@ -20,11 +21,11 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        binding()
         self.title = "Library"
         self.view.backgroundColor = .white
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.bookViewModel.fetchBooks()
-            self.binding()
         }
         tableView.dataSource = self
         tableView.delegate = self
@@ -33,17 +34,15 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func binding() {
-        bookViewModel.$books
-            .sink (receiveValue: { _ in
-                self.tableView.reloadData()
-            })
-            .store(in: &cancellable)
+        bookViewModel.$books.sink { books in
+            print(books.count)
+            print(self.bookViewModel.books.count)
+            self.tableView.reloadData()
+        }.store(in: &cancellables)
     }
     
-    private var cancellable = Set<AnyCancellable>()
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookViewModel.books.count
+        bookViewModel.books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
