@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol BookListPresenterProtocol {
-    func fetchBooks() -> [Book]
+    func fetchBooks()
 }
 
 class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListView {
@@ -28,8 +28,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         self.title = "Library"
         self.view.backgroundColor = .white
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.books = self.bookPresenter.fetchBooks()
-//            self.showBooks(self.books)
+            self.bookPresenter.fetchBooks()
         }
         tableView.dataSource = self
         tableView.delegate = self
@@ -38,6 +37,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func showBooks(_ books: [Book]) {
+        self.books = books
         tableView.reloadData()
     }
 

@@ -7,14 +7,16 @@
 
 import UIKit
 
-protocol BookListView {
+protocol BookListView: AnyObject {
     func showBooks(_ books: [Book]) 
 }
 
 class BooksPresenter: BookListPresenterProtocol {
-//    private(set) var books: [Book] = []
-    
-    func fetchBooks() -> [Book] {
-        BookDecoder().decode()
+
+    weak var view: BookListView?
+
+    func fetchBooks() {
+        let books = BookDecoder().decode()
+        view?.showBooks(books)
     }
 }
