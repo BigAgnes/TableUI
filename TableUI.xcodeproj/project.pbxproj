@@ -88,6 +88,7 @@
 		AF56F672274E1425008408D2 /* BookListView */ = {
 			isa = PBXGroup;
 			children = (
+				AF8E3DA9274FC94F00BB7BF5 /* VIPER */,
 				AF56F67C274E7304008408D2 /* MVVM */,
 				AF56F679274E72D2008408D2 /* MVP */,
 				AFC5909F273E854E005B8C2E /* Model */,
@@ -168,6 +169,13 @@
 				AF56F677274E14BC008408D2 /* ViewModel */,
 			);
 			path = MVVM;
+			sourceTree = "<group>";
+		};
+		AF8E3DA9274FC94F00BB7BF5 /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIPER;
 			sourceTree = "<group>";
 		};
 		AF8EA0A0274D04630086FE14 /* View */ = {
