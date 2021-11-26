@@ -15,7 +15,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
     
     private let tableView = UITableView()
     private var books: [Book] = []
-    let bookPresenter = BooksPresenter()
+    var bookPresenter = BooksPresenter()
     
     override func loadView() {
         super.loadView()
