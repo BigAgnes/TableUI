@@ -19,15 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
     
         let vc = BookListControllerMVP()
+        vc.bookPresenter.interactor = BookInteractor()
+        vc.bookPresenter.view = vc
+        
         let navigationController = UINavigationController()
-
         navigationController.pushViewController(vc, animated: true)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        vc.bookPresenter.interactor = BookInteractor()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
