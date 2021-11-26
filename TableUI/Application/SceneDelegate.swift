@@ -25,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         bookPresenter.interactor = BookInteractor()
         bookPresenter.view = vc
         vc.presenter = bookPresenter
+        bookPresenter.router = BookRouter()
         
         let navigationController = UINavigationController()
         navigationController.pushViewController(vc, animated: true)

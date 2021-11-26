@@ -14,6 +14,7 @@ protocol BookListView: AnyObject {
 class BooksPresenter: BookListPresenterProtocol {
     weak var view: BookListView?
     var interactor: IneractorProtocol?
+    var router: RouterProtocol?
     
     func viewDidLoad() {
         let books = (interactor?.decodeBook())!
