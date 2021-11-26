@@ -13,7 +13,6 @@ protocol BookListPresenterProtocol {
 
 class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListView {
     
-    var bookPresenter = BooksPresenter()
     private let tableView = UITableView()
     private var books: [Book] = []
     
@@ -27,7 +26,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         self.title = "Library"
         self.view.backgroundColor = .white
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.bookPresenter.viewDidLoad()
+            
         }
         tableView.dataSource = self
         tableView.delegate = self
