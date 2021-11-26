@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol BookListPresenterProtocol {
+protocol BookListPresenterProtocol: AnyObject {
     func viewDidLoad()
 }
 
@@ -15,6 +15,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
     
     private let tableView = UITableView()
     private var books: [Book] = []
+    let bookPresenter = BooksPresenter()
     
     override func loadView() {
         super.loadView()
@@ -26,7 +27,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         self.title = "Library"
         self.view.backgroundColor = .white
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            
+            self.bookPresenter.viewDidLoad()
         }
         tableView.dataSource = self
         tableView.delegate = self

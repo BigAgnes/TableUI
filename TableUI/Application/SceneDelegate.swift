@@ -19,10 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
     
         let vc = BookListControllerMVP()
-        let bookPresenter = BooksPresenter()
-
-        bookPresenter.interactor = BookInteractor()
-        bookPresenter.view = vc
+        
+        vc.bookPresenter.interactor = BookInteractor()
+        vc.bookPresenter.view = vc
+        vc.bookPresenter.presenter = BooksPresenter()
         
         let navigationController = UINavigationController()
         navigationController.pushViewController(vc, animated: true)
