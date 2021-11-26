@@ -27,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigationController
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
+        vc.bookPresenter.interactor = BookInteractor()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

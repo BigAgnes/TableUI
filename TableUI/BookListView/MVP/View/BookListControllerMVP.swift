@@ -8,12 +8,12 @@
 import UIKit
 
 protocol BookListPresenterProtocol {
-    func fetchBooks()
+    func viewDidLoad()
 }
 
 class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListView {
     
-    private var bookPresenter = BooksPresenter()
+    var bookPresenter = BooksPresenter()
     private let tableView = UITableView()
     private var books: [Book] = []
     
@@ -28,7 +28,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         self.view.backgroundColor = .white
         self.bookPresenter.view = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.bookPresenter.fetchBooks()
+            self.bookPresenter.viewDidLoad()
         }
         tableView.dataSource = self
         tableView.delegate = self
