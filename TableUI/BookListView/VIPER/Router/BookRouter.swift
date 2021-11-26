@@ -10,6 +10,7 @@ import UIKit
 protocol RouterProtocol {
     
 }
-class RouterForViper {
+
+class BookRouter: RouterProtocol {
     
 }

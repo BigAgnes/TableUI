@@ -14,6 +14,7 @@ protocol BookListPresenterProtocol {
 class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListView {
     
     private var bookPresenter = BooksPresenter()
+    private let ineractor = BookInteractor()
     private let tableView = UITableView()
     private var books: [Book] = []
     
@@ -26,6 +27,7 @@ class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         self.title = "Library"
         self.view.backgroundColor = .white
+        self.bookPresenter.interactor = ineractor
         self.bookPresenter.view = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.bookPresenter.fetchBooks()

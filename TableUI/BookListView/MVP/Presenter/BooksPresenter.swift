@@ -12,11 +12,11 @@ protocol BookListView: AnyObject {
 }
 
 class BooksPresenter: BookListPresenterProtocol {
-
     weak var view: BookListView?
-
+    weak var interactor: IneractorProtocol?
+    
     func fetchBooks() {
-        let books = BookDecoder().decode()
+        let books = (interactor?.decodeBook())!
         view?.showBooks(books)
     }
 }
