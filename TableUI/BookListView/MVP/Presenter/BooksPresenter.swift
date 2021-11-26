@@ -14,8 +14,10 @@ protocol BookListView: AnyObject {
 class BooksPresenter: BookListPresenterProtocol {
     weak var view: BookListView?
     weak var interactor: IneractorProtocol?
+    let bookIneractor = BookInteractor()
     
     func fetchBooks() {
+        interactor = bookIneractor
         let books = (interactor?.decodeBook())!
         view?.showBooks(books)
     }
