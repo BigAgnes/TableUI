@@ -18,20 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
     
-        let vc = BookListControllerMVP()
-        
-        let bookPresenter = BooksPresenter()
-        
-        bookPresenter.interactor = BookInteractor()
-        bookPresenter.view = vc
-        vc.presenter = bookPresenter
-        bookPresenter.router = BookRouter()
-        
-        let navigationController = UINavigationController()
-        navigationController.pushViewController(vc, animated: true)
+        let router = BookRouter()
+        let vc = router.getFirstViewController()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
+        window?.rootViewController = vc.navigationController
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
     }
