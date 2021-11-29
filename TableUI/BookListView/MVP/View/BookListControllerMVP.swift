@@ -9,6 +9,7 @@ import UIKit
 
 protocol BookListPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func didSelectedBook(_ book: Book)
 }
 
 class BookListControllerMVP: UIViewController, UITableViewDataSource, UITableViewDelegate, BookListView {
