@@ -8,14 +8,14 @@
 import UIKit
 
 protocol RouterProtocol {
-    func presentDetails()
+    func showDetailsBook(_ book: Book, _ vc: UIViewController)
 }
 
 class BookRouter: RouterProtocol {
-    weak var view: BookListView?
     
-    func presentDetails() {
-        
+    func showDetailsBook(_ book: Book, _ vc: UIViewController) {
+        let bookInfo = DetailsViewController()
+        bookInfo.setup(book: book)
+        vc.present(bookInfo, animated: true)
     }
-    
 }
