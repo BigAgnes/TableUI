@@ -12,9 +12,9 @@ protocol BookListView: AnyObject {
 }
 
 class BooksPresenter: BookListPresenterProtocol {
-    weak var view: BookListView?
     var interactor: IneractorProtocol?
-    var router: RouterProtocol?
+    weak var view: BookListView?
+    weak var router: RouterProtocol?
     
     func didSelectedBook(_ book: Book) {
         router?.showDetailsBook(book, view as! UIViewController)

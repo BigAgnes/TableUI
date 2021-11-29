@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RouterProtocol {
+protocol RouterProtocol: AnyObject {
     func showDetailsBook(_ book: Book, _ vc: UIViewController)
     func getFirstViewController() -> UIViewController
 }
