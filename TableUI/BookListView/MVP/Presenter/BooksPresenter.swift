@@ -17,7 +17,7 @@ class BooksPresenter: BookListPresenterProtocol {
     var router: RouterProtocol?
     
     func didSelectedBook(_ book: Book) {
-        
+        router?.showDetailsBook(book, view as! UIViewController)
     }
     
     func viewDidLoad() {
