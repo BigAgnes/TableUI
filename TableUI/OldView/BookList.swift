@@ -13,7 +13,7 @@ class BookList: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        books = BookDecoder().decode()
+        books = BookDecoder().decodeLocalFile()
     }
 
     // MARK: - Table view data source

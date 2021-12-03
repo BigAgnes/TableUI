@@ -21,7 +21,6 @@ class BooksPresenter: BookListPresenterProtocol {
     }
     
     func viewDidLoad() {
-        let books = (interactor?.decodeBook())!
-        view?.showBooks(books)
+        interactor?.decodeBookFromNet({ self.view?.showBooks($0) })
     }
 }

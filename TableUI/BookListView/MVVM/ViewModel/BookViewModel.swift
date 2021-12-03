@@ -13,6 +13,6 @@ class BookViewModel: ObservableObject {
     @Published var books: [Book] = []
     
     func fetchBooks() {
-        books = BookDecoder().decode()
+        books = BookDecoder().decodeLocalFile()
     }
 }

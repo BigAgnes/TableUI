@@ -9,15 +9,18 @@ import UIKit
 
 protocol IneractorProtocol: AnyObject {
     func decodeBook() -> [Book]
+    func decodeBookFromNet(_ completion: @escaping ([Book]) -> Void)
 }
 
 class BookInteractor: IneractorProtocol {
-    var books: [Book] = []
     
     func decodeBook() -> [Book] {
-        books = BookDecoder().decode()
-        return books
+        BookDecoder().decodeLocalFile()
     }
     
-    
+    func decodeBookFromNet(_ completion: @escaping ([Book]) -> Void) {
+        BookDecoder().decodeNetFile { books in
+            completion(books)
+        }
+    }
 }
