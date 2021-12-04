@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		387FD818F7633BB63BB8D5F2 /* Pods_TableUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61C8064E071187D0A548103 /* Pods_TableUI.framework */; };
 		AF1E70442757E7EE003372A3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AF1E70432757E7EE003372A3 /* Alamofire */; };
 		AF403A38272C7137006203B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF403A37272C7137006203B5 /* AppDelegate.swift */; };
 		AF403A3A272C7137006203B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF403A39272C7137006203B5 /* SceneDelegate.swift */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02FDF10A0E448EBFDE513967 /* Pods-TableUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableUI.release.xcconfig"; path = "Target Support Files/Pods-TableUI/Pods-TableUI.release.xcconfig"; sourceTree = "<group>"; };
+		6A5C384293A61781D4BDFB09 /* Pods-TableUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableUI.debug.xcconfig"; path = "Target Support Files/Pods-TableUI/Pods-TableUI.debug.xcconfig"; sourceTree = "<group>"; };
 		AF403A34272C7137006203B5 /* TableUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF403A37272C7137006203B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF403A39272C7137006203B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		AFC590A5273E89F3005B8C2E /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		AFC590A7273EB60C005B8C2E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		AFDAF0A92750D61C00A6AC75 /* BookInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInteractor.swift; sourceTree = "<group>"; };
+		C61C8064E071187D0A548103 /* Pods_TableUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +61,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF1E70442757E7EE003372A3 /* Alamofire in Frameworks */,
+				387FD818F7633BB63BB8D5F2 /* Pods_TableUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C321CDBCC700686F82C6628 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C61C8064E071187D0A548103 /* Pods_TableUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AF403A2B272C7137006203B5 = {
 			isa = PBXGroup;
 			children = (
 				AF403A36272C7137006203B5 /* TableUI */,
 				AF403A35272C7137006203B5 /* Products */,
+				FB8BFE90B8FE154B74A7EDBC /* Pods */,
+				3C321CDBCC700686F82C6628 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -273,6 +288,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FB8BFE90B8FE154B74A7EDBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A5C384293A61781D4BDFB09 /* Pods-TableUI.debug.xcconfig */,
+				02FDF10A0E448EBFDE513967 /* Pods-TableUI.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,9 +305,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF403A48272C7139006203B5 /* Build configuration list for PBXNativeTarget "TableUI" */;
 			buildPhases = (
+				9CC7AC6710DDE4048E97606B /* [CP] Check Pods Manifest.lock */,
 				AF403A30272C7137006203B5 /* Sources */,
 				AF403A31272C7137006203B5 /* Frameworks */,
 				AF403A32272C7137006203B5 /* Resources */,
+				B8F173694F674DF715F1A089 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,6 +372,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9CC7AC6710DDE4048E97606B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TableUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8F173694F674DF715F1A089 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TableUI/Pods-TableUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TableUI/Pods-TableUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TableUI/Pods-TableUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF403A30272C7137006203B5 /* Sources */ = {
@@ -508,6 +577,7 @@
 		};
 		AF403A49272C7139006203B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A5C384293A61781D4BDFB09 /* Pods-TableUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -537,6 +607,7 @@
 		};
 		AF403A4A272C7139006203B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02FDF10A0E448EBFDE513967 /* Pods-TableUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
